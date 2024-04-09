@@ -1,0 +1,26 @@
+.SingleCards {
+    border: 5px solid #ED6FBA;
+    background-color: #2F2F2F;
+    color: #ED6FBA;
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    margin: 30px;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-icon {
+    font-size: 50px;
+    margin-bottom: 1px; 
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  

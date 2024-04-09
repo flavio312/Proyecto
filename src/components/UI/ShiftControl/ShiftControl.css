@@ -1,0 +1,29 @@
+.control {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a lo largo del eje principal */
+    text-align: center;
+    flex-direction: row;
+    margin-right: 100px;
+    margin-left: 100px;
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Estilos para el párrafo que muestra la fecha */
+.control p.end {
+    font-size: 14px; /* Tamaño de fuente */
+    margin-left: auto; /* Empuja el elemento a la derecha */
+}
+
+
+/* Estilos para los inputs */
+.control input[type="time"] {
+    background-color: #ffcccc; /* Fondo color rosado */
+    color: #000000; /* Texto color negro */
+    font-size: 14px; /* Tamaño de fuente */
+    padding: 8px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    margin: 0 10px; /* Margen a cada lado */
+    width: 100px; /* Ancho fijo para los inputs */
+    height: 25px;
+}

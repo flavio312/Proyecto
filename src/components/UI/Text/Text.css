@@ -1,0 +1,16 @@
+.text {
+    color: #000;
+  }
+  
+  .text.large {
+    font-size: 24px; 
+  }
+  
+  .text.medium {
+    font-size: 18px; 
+  }
+  
+  .text.small {
+    font-size: 14px; 
+  }
+  

@@ -1,0 +1,38 @@
+.delete-employee-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.delete-employee-box {
+    background-color: #ffc0cb; /* Color de fondo rosado */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.delete-employee-box > * {
+    margin-bottom: 10px;
+}
+
+.delete-employee-box input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.delete-employee-box button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-employee-box button:hover {
+    background-color: #0056b3;
+}

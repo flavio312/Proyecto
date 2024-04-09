@@ -1,0 +1,45 @@
+.sales-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+.sales-table th,
+.sales-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+.sales-table th {
+    background-color: #f2f2f2;
+}
+
+.sales-table button {
+    padding: 10px 20px;
+    background-color: #ff009d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sales-table button:hover {
+    background-color: #0056b3;
+}
+
+.sales-table button:focus {
+    outline: none;
+}
+
+/* Estilos para el contenedor de los totales a la derecha */
+.total-container {
+    width: 50%; /* Puedes ajustar el ancho según sea necesario */
+    margin-left: auto;
+    text-align: right;
+    padding: 20px; /* Agrega espacio alrededor del contenedor */
+}

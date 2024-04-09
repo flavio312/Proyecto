@@ -1,0 +1,38 @@
+.delete-product-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.delete-product-container > * {
+    margin-bottom: 10px;
+}
+
+.delete-product-box {
+    background-color: #ffc0cb; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.delete-product-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.delete-product-container button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-product-container button:hover {
+    background-color: #b30000;
+}
