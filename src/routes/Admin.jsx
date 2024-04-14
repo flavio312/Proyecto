@@ -5,17 +5,20 @@ import Menu from '../pages/Main/Menu';
 import Productos from '../pages/Products/Productos';
 import NuevoProducto from '../pages/Form/NuevoProducto';
 import Empleados from '../pages/Employees/Empleados';
-import VerVentas from '../pages/ViewSales/VerVentas';
 import AddEmployee from '../components/pages/AddEmployee/AddEmployee';
 import CutBoxDay from '../pages/CutBoxDay/CutBoxDay';
 import DeleteEmployee from '../components/UI/DeleteEmployee/DeleteEmployee';
 import CBox from '../pages/CBox/CBox';
 import Ventas from '../pages/Sales/Ventas';
+import UpdateProduct from '../components/pages/UpdateProduct/UpdateProduct';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <IniciarSesion />
+  },{
+    path: '/actualizar-producto',
+    element:<UpdateProduct/>
   },
   {
     path: '/menu',
@@ -40,10 +43,6 @@ const router = createBrowserRouter([
   {
     path: '/eliminar-empleado',
     element: <DeleteEmployee />
-  },
-  {
-    path: '/ver-ventas',
-    element: <VerVentas />
   },
   {
     path: '/ventas',

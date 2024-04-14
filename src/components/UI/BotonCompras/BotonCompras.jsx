@@ -9,9 +9,9 @@ function BotonCompras () {
     return(
         <>
         <div className="fila">
-            <Boton onClick={handleButtonClick} color="#fbff00" caption="Agregar compra"/>
-            <Boton onClick={handleButtonClick} color="#ff0000" caption="Cancelar ventas"/>
-            <Boton onClick={handleButtonClick} color="#00ff00" caption="Realizar Compra"/>
+            <Boton onClick={handleButtonClick} color="#fbff00" caption="Agregar venta"/>
+            <Boton onClick={handleButtonClick} color="#f43535" caption="Cancelar ventas"/>
+            <Boton onClick={handleButtonClick} color="#52ee52" caption="Realizar venta"/>
         </div>
         </>
     )

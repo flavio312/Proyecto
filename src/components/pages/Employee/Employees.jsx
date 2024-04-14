@@ -1,23 +1,26 @@
+import { Link } from "react-router-dom";
 import ViewEmployees from "../ViewEmployee/ViewEmployees";
 import Header from "../../UI/Header/Header";
 import Nav from "../../UI/Nav/Nav";
-import CardEmployee from "../../UI/CardEmploye/CardEmployee";
+import Button from "../../UI/Button/Button";
 import Footer from "../../UI/Footer/Footer";
-import styled from "styled-components";
-
-const Container = styled.div`
-  display: flex;
-`;
+import SearchBox from "../../UI/SearchBox/Search-box";
+import "./Employee.css"
 
 function Employees() {
   return (
     <>
       <Header />
-      <Nav /> <br />
-      <Container>
-        <CardEmployee /> 
-        <ViewEmployees />
-      </Container>
+      <Nav /> <br /><br />
+      <div className="search-Box">
+        <SearchBox/>
+      </div> <br />
+      <div className="new-employee-button">
+        <Link to="/nuevo-Empleado">
+          <Button caption="Agregar empleado"/>
+        </Link>
+      </div><br />
+        <ViewEmployees /><br /><br />
       <Footer/>
     </>
   );

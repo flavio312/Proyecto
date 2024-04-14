@@ -1,21 +1,21 @@
-.delete-employee-container {
+.delete-product-container {
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
 }
 
-.delete-employee-box {
+.delete-product-box {
     background-color: #ffc0cb; /* Color de fondo rosado */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-.delete-employee-box > * {
+.delete-product-box > * {
     margin-bottom: 10px;
 }
 
-.delete-employee-box input[type="text"] {
+.delete-product-box input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 
-.delete-employee-box button {
+.delete-product-box button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #ffffff;
@@ -33,6 +33,6 @@
     transition: background-color 0.3s;
 }
 
-.delete-employee-box button:hover {
+.delete-product-box button:hover {
     background-color: #0056b3;
 }

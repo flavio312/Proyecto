@@ -3,15 +3,26 @@ import BotonCompras from '../BotonCompras/BotonCompras';
 import SalesTable from '../TablaVentas/TableSales';
 
 function TableSales() {
-    const initialSales = [
-        { id: 1, nombre: 'Moño', precio: '23', cantidad: '1', subtotal: '23' },
-        { id: 2, nombre: 'Calcetas', precio: '50', cantidad: '12', subtotal: '600' },
-        { id: 3, nombre: 'Mochila', precio: '25', cantidad: '4', subtotal: '100' },
-    ];
-
-    const [sales, setSales] = useState(initialSales);
+    const [sales, setSales] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [productQuantities, setProductQuantities] = useState({});
+
+    useEffect(() => {
+        const getSales = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/sales');
+                if (!response.ok) {
+                    throw new Error('No se pudo obtener la lista de ventas');
+                }
+                const data = await response.json();
+                setSales(data);
+            } catch (error) {
+                console.error('Error al obtener las ventas:', error);
+            }
+        };
+
+        getSales();
+    }, []);
 
     useEffect(() => {
         calculateTotalPrice();
@@ -25,11 +36,11 @@ function TableSales() {
 
     const calculateProductQuantities = () => {
         const productQuantities = sales.reduce((quantities, sale) => {
-            const { nombre, cantidad } = sale;
-            if (!quantities[nombre]) {
-                quantities[nombre] = 0;
+            const { productName, quantity } = sale;
+            if (!quantities[productName]) {
+                quantities[productName] = 0;
             }
-            quantities[nombre] += parseInt(cantidad);
+            quantities[productName] += parseInt(quantity);
             return quantities;
         }, {});
         setProductQuantities(productQuantities);

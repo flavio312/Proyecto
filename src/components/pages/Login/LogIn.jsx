@@ -9,16 +9,41 @@ function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const handleSubmit = (event) => {
-        event.preventDefault();
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(` usuario: ${username}`);
         if (username === "usuario" && password === "prueba123") {
-            console.log("Inicio de sesión exitoso");
             navigate("/menu");
-        } else {
-            alert("Credenciales invalidas");
+            return;
         }
-    };
+        // Si no coincide con ningún usuario, muestra un mensaje de error
+        alert("Credenciales inválidas");
+      
+    //     try {
+    //         // Verificar si las credenciales son para el empleado
+    //         const response = await fetch('http://localhost:8080/api/auth/loginEmple', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ username, password })
+    //         });
+
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             if (data.userType === 'empleado') {
+    //                 navigate("/menu");
+    //                 return;
+    //             }
+    //         }
+    //         // Si no es un empleado o las credenciales son incorrectas, verifica si es el administrador
+       
+    //     } catch (error) {
+    //         console.error('Error al iniciar sesión:', error.message);
+    //         alert("Credenciales inválidas");
+    //     }
+     };
 
     return (
         <div className="login-container">

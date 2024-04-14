@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../../UI/Header/Header";
 import Nav from "../../UI/Nav/Nav";
 import SearchBox from "../../UI/SearchBox/Search-box";
@@ -6,15 +7,13 @@ import Date from "../../../utils/FechaActual"
 import Footer from "../../UI/Footer/Footer";
 import ConsultProduct from "../ConsultProduct/ConsultProduct";
 import "./Product.css"
-import { Link } from "react-router-dom";
 
 function Products () {
     const fecha = Date();
     return(
         <>
         <Header/>
-        <Nav/>
-        <br />
+        <Nav/><br />
         <div className="search-Box">
         <SearchBox/>
         </div>

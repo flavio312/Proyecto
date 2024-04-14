@@ -5,44 +5,59 @@ import Button from "../../UI/Button/Button";
 import "./AddEmployee.css";
 
 function AddEmployee() {
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
+    const [registro, setRegistro] = useState({
+        username: '',
+        turno: '',
+        numCont: '',
+        password: '',
+        clave: ''
+    });
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+    const handleRegistroChange = (e) => {
+        const { name, value } = e.target;
+        setRegistro({ 
+            ...registro, 
+            [name]: value 
+        });
     };
 
-    const handleConfirmPasswordChange = (event) => {
-        setConfirmPassword(event.target.value);
-    };
-
-    const handleSubmit = () => {
-        if (password !== confirmPassword) {
-            setErrorMessage("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
-        } else {
-            // Aquí puedes enviar los datos del formulario si la validación pasa
-            setErrorMessage("");
+    const agregar = async (credentials) => {
+        try {
+          const response = await fetch('http://localhost:8080/api/auth/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+          });
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error('Error al enviar datos de registro:', error);
         }
     };
 
+    const handleRegistroSubmit = async (e) =>{
+        e.preventDefault();
+        await agregar(registro);
+    }
+
     return (
         <div className="form">
-            <Text text="Expande tu equipo, incorpora un nuevo talento" size="large"/><br />
-            <Text text="ID" size="medium"/>
-            <CustomInput type="number" placeholder="ID" />
+             <Text text="Expande tu equipo, incorpora un nuevo talento" size="large"/><br />
+            <form onSubmit={handleRegistroSubmit}> 
             <Text text="Nombre del usuario" size="medium"/>
-            <CustomInput type="text" placeholder="Usuario"/>
-            <Text text="Contraseña" size="medium"/>
-            <CustomInput type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange}/>
-            <Text text="Confirmar Contraseña" size="medium"/>
-            <CustomInput type="password" placeholder="Confirmar Contraseña" value={confirmPassword} onChange={handleConfirmPasswordChange}/>
-            {errorMessage && <Text text={errorMessage} size="small" color="red"/>}
+            <CustomInput type="text" name="username" placeholder="Usuario" value={registro.username} onChange={handleRegistroChange}/>
             <Text text="Turno" size="medium"/>
-            <CustomInput type="text" placeholder="Turno"/>
+            <CustomInput type="text" name="turno" placeholder="Turno" value={registro.turno} onChange={handleRegistroChange}/>
             <Text text="Numero de contacto" size="medium"/>
-            <CustomInput type="number" placeholder="telefono"/>
-            <Button caption="Agregar empleado" onClick={handleSubmit}/>
+            <CustomInput type="number" name="numCont" placeholder="telefono" value={registro.numCont} onChange={handleRegistroChange}/>
+            <Text text="Contraseña" size="medium"/>
+            <CustomInput type="password" name="password" placeholder="Contraseña" value={registro.password} onChange={handleRegistroChange}/>
+            <Text text="Clave" size="medium"/>
+            <CustomInput type="number" name="clave" placeholder="Clave" value={registro.clave} onChange={handleRegistroChange} />
+            <Button caption="Agregar empleado" type="submit"/>
+            </form>
         </div>
     );
 }

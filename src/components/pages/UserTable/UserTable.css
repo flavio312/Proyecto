@@ -1,4 +1,4 @@
-.product-table {
+.table {
     width: 90%; /* Cambiado el ancho para que se vea mejor */
     border-collapse: collapse;
     margin: 0 auto; /* Centra la tabla horizontalmente */
@@ -6,18 +6,18 @@
     align-items: center; /* Centra verticalmente el contenido */
 }
 
-.product-table th,
-.product-table td {
+.table th,
+.table td {
     border: 1px solid #dddddd;
     padding: 8px; /* Aumentado el padding para mejor legibilidad */
 }
 
-.product-table th {
+.table th {
     background-color: #f2f2f2;
 }
 
 /* Estilos para los botones dentro de la tabla */
-.product-table button {
+.table button {
     padding: 10px 20px; /* Aumenta el padding para hacer el botón más grande */
     background-color: #ff009d;
     color: #ffffff;
@@ -29,10 +29,10 @@
     line-height: 1.5; /* Ajusta la altura de línea para centrar el texto verticalmente */
 }
 
-.product-table button:hover {
+.table button:hover {
     background-color: #0056b3;
 }
 
-.product-table button:focus {
+.table button:focus {
     outline: none;
 }

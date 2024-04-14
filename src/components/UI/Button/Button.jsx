@@ -11,7 +11,7 @@ const StyleButton = styled.button`
 `;
 
 const Button = ({ onClick, caption }) => {
-  return <StyleButton onClick={onClick}>{caption}</StyleButton>;
+  return <StyleButton onClick={onClick} type="type">{caption}</StyleButton>;
 };
 
 export default Button;

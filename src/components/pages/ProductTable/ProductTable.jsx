@@ -5,7 +5,6 @@ import "./ProductTable.css";
 function ProductTable({ products, onUpdate, onDelete }) {
     return (
         <table className="product-table">
-            <thead>
                 <tr>
                     <th>Código</th>
                     <th>Nombre</th>
@@ -15,8 +14,6 @@ function ProductTable({ products, onUpdate, onDelete }) {
                     <th>Sección</th>
                     <th>Acciones</th>
                 </tr>
-            </thead>
-            <tbody>
                 {products.map(product => (
                     <ProductRow 
                         key={product.id} 
@@ -25,7 +22,6 @@ function ProductTable({ products, onUpdate, onDelete }) {
                         onDelete={onDelete} 
                     />
                 ))}
-            </tbody>
         </table>
     );
 }

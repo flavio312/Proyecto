@@ -1,9 +1,9 @@
 import React from 'react';
 
-function CustomInput({ type, placeholder,onChange,filtro}) {
+function CustomInput({ type, name, placeholder, onChange, value}) {
   return (
     <>
-    <input type={type} placeholder={placeholder} onChange={onChange} value={filtro}/>
+    <input type={type} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
     </>
   );
 }

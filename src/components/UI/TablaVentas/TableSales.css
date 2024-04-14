@@ -3,7 +3,7 @@
     border-collapse: collapse;
     margin-left: 2%;
     text-align: center;
-    align-items: center; /* Centra verticalmente el contenido */
+    align-items: left; /* Centra verticalmente el contenido */
 }
 
 .sales-table th,

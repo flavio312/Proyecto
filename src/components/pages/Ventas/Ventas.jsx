@@ -8,7 +8,6 @@ const ventas = [
   { codigo: 1, producto: 'Camisa', precio: 50, cantidad: 2,subtotal:100 },
   { codigo: 2, producto: 'Pantalón', precio: 30, cantidad: 3 ,subtotal:90},
   { codigo: 3, producto: 'Zapatos', precio: 20, cantidad: 5, subtotal:100},
-  // Más datos de ventas aquí...
 ];
 
 const Ventas = () => {

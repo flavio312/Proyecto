@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from '@react-pdf/renderer';
 
-const TableRow = ({ venta }) => {
+const    TableRow = ({ venta }) => {
   const styles = StyleSheet.create({
     tableRow: {
       flexDirection: "row",

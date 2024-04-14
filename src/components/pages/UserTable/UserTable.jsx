@@ -4,26 +4,22 @@ import "./UserTable.css"
 
 function UserTable({ users, onUpdate, onDelete }) {
     return (
-        <table className="user-table">
-            <thead>
+        <table className="table">
                 <tr>
-                    <th>ID</th>
                     <th>Nombre del usuario</th>
-                    <th>Contraseña</th>
                     <th>Turno</th>
                     <th>Número de contacto</th>
+                    <th>Código</th>
                     <th>Acciones</th>
                 </tr>
-            </thead>
-            <tbody>
                 {users.map(user => (
                     <EmployeeRow 
                         key={user.id} 
                         user={user} 
                         onUpdate={onUpdate} 
+                        onDelete={onDelete}
                     />
                 ))}
-            </tbody>
         </table>
     );
 }

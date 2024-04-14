@@ -11,8 +11,8 @@ function ProductRow({ product, onUpdate, onDelete }) {
             <td>{product.precioVenta}</td>
             <td>{product.seccion}</td>
             <td>
-                <Button onClick={() => onUpdate(product.id)} caption="Actualizar"></Button>
-                <Button onClick={() => onDelete(product.id)} caption="Eliminar"></Button>
+                <Button onClick={() => onUpdate(product.codigo)} caption="Actualizar"></Button> &nbsp;&nbsp;&nbsp;  
+                <Button onClick={() => onDelete(product.codigo)} caption="Eliminar"></Button>
             </td>
         </tr>
     );
