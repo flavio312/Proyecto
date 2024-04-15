@@ -27,16 +27,13 @@ const    TableRow = ({ venta }) => {
         <Text style={styles.text}>{venta.producto}</Text>
       </View>
       <View style={styles.tableCol}>
-        <Text style={styles.text}>{venta.precio}</Text>
+        <Text style={styles.text}>{venta.precioVenta}</Text>
       </View>
       <View style={styles.tableCol}>
         <Text style={styles.text}>{venta.cantidad}</Text>
       </View>
       <View style={styles.tableCol}>
         <Text style={styles.text}>{venta.subtotal}</Text>
-      </View>
-      <View style={styles.tableCol}>
-        <Text style={styles.text}>{venta.turno}</Text>
       </View>
     </View>
   );

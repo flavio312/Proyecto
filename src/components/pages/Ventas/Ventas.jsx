@@ -1,23 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PDFViewer } from '@react-pdf/renderer';
 import VentasList from '../../UI/Ventas/VentasList';
 import VentasPDF from '../../UI/Ventas/VentasPDF';
 
-// Ejemplo de datos de ventas
-const ventas = [
-  { codigo: 1, producto: 'Camisa', precio: 50, cantidad: 2,subtotal:100 },
-  { codigo: 2, producto: 'Pantalón', precio: 30, cantidad: 3 ,subtotal:90},
-  { codigo: 3, producto: 'Zapatos', precio: 20, cantidad: 5, subtotal:100},
-];
-
 const Ventas = () => {
+  const [ventas, setVentas] = useState([]);
   const [filtro, setFiltro] = useState('');
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchVentas = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/products');
+        if (!response.ok) {
+          throw new Error('No se pudo obtener los datos de ventas');
+        }
+        const data = await response.json();
+        setVentas(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchVentas();
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  // Filtrar ventas en función del estado de filtro
+  const filteredVentas = ventas.filter(venta =>
+    venta.producto && venta.producto.toLowerCase().includes(filtro.toLowerCase())
+  );
   return (
     <div className="center">
-      <VentasPDF ventas={ventas} filtro={filtro} />
+      <VentasPDF ventas={filteredVentas} />
     </div>
   );
 };
 
 export default Ventas;
+

@@ -2,17 +2,27 @@
 .search-box {
     display: flex;
     align-items: center;
+    padding: 10px;
+    height: 15px;
 }
 
-/* Estilos para el input de búsqueda */
 .search-box input[type="text"] {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+    border: none; 
+    border-bottom: 1px solid #ccc; /* Agregamos solo un borde inferior */
+    text-align: center;
+    border-radius: 0; /* Quitamos el redondeo de los bordes */
     font-size: 16px;
-    width: 200px; /* Ajusta el ancho según sea necesario */
+    width: 250px;
+    margin-right: 20px;
+    outline: none; /* Elimina el contorno al hacer clic */
 }
+
+.search-box input[type="text"]:focus {
+    border-bottom-color: transparent; /* Anula el borde inferior al hacer clic */
+}
+
+
 
 /* Estilos para el botón de búsqueda */
 .search-box button {

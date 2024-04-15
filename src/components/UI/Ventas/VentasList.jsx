@@ -7,7 +7,7 @@ const VentasList = ({ ventas }) => {
         <div key={venta.id}>
           <p>Codigo: {venta.codigo}</p>
           <p>Producto: {venta.producto}</p>
-          <p>Precio: {venta.precio}</p>
+          <p>Precio: {venta.precioVenta}</p>
           <p>Cantidad: {venta.cantidad}</p>
           <p>SubTotal: {venta.subtotal}</p>
           <p>Turno: {venta.turno}</p>

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import CustomInput from "../Input/Input";
 import Button from "../Button/Button";
+import "./SearchBox.css"
 
-function SearchBox() {
+function SearchBox({ onProductoEncontrado }) {
     const [codigoProducto, setCodigoProducto] = useState("");
     const [productoEncontrado, setProductoEncontrado] = useState(null);
+    const [cantidad, setCantidad] = useState(1);
 
     const buscarProducto = async () => {
         try {
@@ -13,25 +15,30 @@ function SearchBox() {
                 throw new Error(`Error al buscar el producto: ${response.status}`);
             }
             const data = await response.json();
-            setProductoEncontrado(data);
+            // Filtrar solo los campos necesarios y agregar la cantidad y el subtotal
+            const producto = {
+                codigo: data.codigo,
+                nombre: data.nombre,
+                precioVenta: data.precioVenta,
+                cantidad: cantidad,
+                subtotal: data.precioVenta * cantidad,
+            };
+            setProductoEncontrado(producto);
+            // Pasar los detalles del producto encontrado al componente padre (TableSales)
+            onProductoEncontrado(producto);
         } catch (error) {
             console.error(error);
-            // Manejar el error
+            // Manejar el error 
         }
     };
 
     return (
-        <div>
-            <CustomInput type="text" value={codigoProducto} onChange={(e) => setCodigoProducto(e.target.value)} />
+        <div className="search-box">
+            <div className="inputBuscador">
+            <CustomInput type="text" value={codigoProducto} placeholder="Producto" onChange={(e) => setCodigoProducto(e.target.value)} />
             <Button onClick={buscarProducto} caption="Buscar"/>
-            {productoEncontrado && (
-                <div>
-                    <p>Código: {productoEncontrado.codigo}</p>
-                    <p>Nombre: {productoEncontrado.nombre}</p>
-                    <p>Precio: {productoEncontrado.precio}</p>
-                    <p>Cantidad: {productoEncontrado.cantidad}</p>
-                </div>
-            )}
+            </div>
+            {/* No es necesario mostrar los detalles del producto aquí */}
         </div>
     );
 }

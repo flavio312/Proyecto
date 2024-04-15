@@ -1,73 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BotonCompras from '../BotonCompras/BotonCompras';
 import SalesTable from '../TablaVentas/TableSales';
+import SearchBox from '../SearchBox/Search-box';
 
 function TableSales() {
     const [sales, setSales] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [productQuantities, setProductQuantities] = useState({});
-
-    useEffect(() => {
-        const getSales = async () => {
-            try {
-                const response = await fetch('http://localhost:8080/api/sales');
-                if (!response.ok) {
-                    throw new Error('No se pudo obtener la lista de ventas');
-                }
-                const data = await response.json();
-                setSales(data);
-            } catch (error) {
-                console.error('Error al obtener las ventas:', error);
-            }
-        };
-
-        getSales();
-    }, []);
-
-    useEffect(() => {
-        calculateTotalPrice();
-        calculateProductQuantities();
-    }, [sales]);
-
-    const calculateTotalPrice = () => {
-        const totalPrice = sales.reduce((total, sale) => total + parseFloat(sale.subtotal), 0);
-        setTotalPrice(totalPrice);
+    
+    const agregarProductoVenta = (producto) => {
+        setSales([...sales, producto]);
     };
 
-    const calculateProductQuantities = () => {
-        const productQuantities = sales.reduce((quantities, sale) => {
-            const { productName, quantity } = sale;
-            if (!quantities[productName]) {
-                quantities[productName] = 0;
+    const guardarVenta = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(sales),
+            });
+            if (!response.ok) {
+                throw new Error('No se pudo guardar la venta');
             }
-            quantities[productName] += parseInt(quantity);
-            return quantities;
-        }, {});
-        setProductQuantities(productQuantities);
-    };
-
-    const handleDelete = (salesId) => {
-        const updatedSales = sales.filter(sale => sale.id !== salesId);
-        setSales(updatedSales);
+            setSales([]);
+        } catch (error) {
+            console.error('Error al guardar la venta:', error);
+        }
     };
 
     return (
         <div>
-            <SalesTable sales={sales} onDelete={handleDelete} />
-            <div className="total-container">
-                <h2>Total General de Ventas: ${totalPrice.toFixed(2)}</h2>
-                <h3>Cantidad Total de Ventas por Producto:</h3>
-                <ul>
-                    {Object.entries(productQuantities).map(([productName, quantity]) => (
-                        <li key={productName}>
-                            {productName}: {quantity} unidades
-                        </li>
-                    ))}
-                </ul>
-            </div> <br />
-            <BotonCompras/>
+            <div className="search">
+            <SearchBox onProductoEncontrado={agregarProductoVenta} />
+            </div><br /><br />
+            <SalesTable sales={sales} /><br /><br />
+            <BotonCompras onClick={guardarVenta} />
         </div>
     );
 }
 
 export default TableSales;
+
