@@ -11,7 +11,7 @@ const Ventas = () => {
   useEffect(() => {
     const fetchVentas = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/products');
+        const response = await fetch('http://44.223.166.115:8080/api/products');
         if (!response.ok) {
           throw new Error('No se pudo obtener los datos de ventas');
         }

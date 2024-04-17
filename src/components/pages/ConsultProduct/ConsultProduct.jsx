@@ -13,7 +13,7 @@ function ConsultProduct() {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/productsAdmin');
+                const response = await fetch('http://44.223.166.115:8080/api/productsAdmin');
                 if (!response.ok) {
                     throw new Error('No se pudo obtener la lista de productos');
                 }
@@ -27,6 +27,7 @@ function ConsultProduct() {
         getProducts();
     }, []);
 
+    
     const openModal = (codigo) => {
         setSelectedProduct(codigo);
         setIsModalOpen(true);
@@ -39,7 +40,7 @@ function ConsultProduct() {
 
     const handleUpdate = async (id, updatedProductData) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${id}`, {
+            const response = await fetch(`http://44.223.166.115:8080/api/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -74,7 +75,7 @@ function ConsultProduct() {
         if (!confirmDelete) return; // Si el usuario cancela, no prodece a eliminar el producto seleccionado 
 
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${codigo}`, {
+            const response = await fetch(`http://44.223.166.115:8080/api/products/${codigo}`, {
                 method: 'DELETE'
             });
             if (!response.ok) {

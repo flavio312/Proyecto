@@ -10,7 +10,7 @@ function SearchBox({ onProductoEncontrado }) {
 
     const buscarProducto = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${codigoProducto}`);
+            const response = await fetch(`http://44.223.166.115:8080/api/products/${codigoProducto}`);
             if (!response.ok) {
                 throw new Error(`Error al buscar el producto: ${response.status}`);
             }

@@ -13,7 +13,7 @@ function ViewEmployees() {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/user');
+                const response = await fetch('http://44.223.166.115:8080/api/user');
                 console.log(response.status);
                 if (!response.ok) {
                     throw new Error('No se pudo obtener la lista de usuarios');
@@ -40,7 +40,7 @@ function ViewEmployees() {
     
     const handleUpdateUser = async (clave, updatedProductData) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/test/adminU/${clave}`, {
+            const response = await fetch(`http://44.223.166.115:8080/api/test/adminU/${clave}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ function ViewEmployees() {
         const confirmDelete = window.confirm('¿Estás seguro que desea eliminar al usuario?');
         if(!confirmDelete) return;//Si el usuario cancela no se eliminara el usuario
         try {
-            const response = await fetch(`http://localhost:8080/api/test/adminD/${clave}`, {
+            const response = await fetch(`http://44.223.166.115:8080/api/test/adminD/${clave}`, {
                 method: 'DELETE'
             });
             if (!response.ok) {
